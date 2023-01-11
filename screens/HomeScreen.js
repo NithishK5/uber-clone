@@ -2,6 +2,8 @@ import { StyleSheet, Text, View, SafeAreaView, Image } from 'react-native' // rn
 import React from 'react'
 import tw from 'tailwind-react-native-classnames'
 import NavOptions from '../components/NavOptions'
+import { GooglePlacesAutocomplete } from 'react-native-google-places-autocomplete'
+import {GOOGLE_MAPS_APIKEY} from '@env'
 
 const HomeScreen = () => {
   return (
@@ -16,6 +18,12 @@ const HomeScreen = () => {
                 source={{
                     uri: "https://links.papareact.com/gzs",
                 }}
+            />
+
+            <GooglePlacesAutocomplete
+                placeholder='Where from?'
+                nearbyPlacesAPI='GooglePlacesSearch'
+                debounce={400}
             />
             <NavOptions/>
         </View>    
